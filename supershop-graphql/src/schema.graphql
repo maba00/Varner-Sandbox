@@ -2,7 +2,7 @@
 type Query {
   info: String!
   feed(filter: String, skip: Int, first: Int, orderBy: LinkOrderByInput): Feed!
-  products(filter: String, skip: Int, first: Int, orderBy: ProductOrderByInput): Products!
+  variants(filter: String, skip: Int, first: Int, orderBy: ProductOrderByInput): ProductResult!
   product: Product!
 }
 
@@ -11,10 +11,6 @@ type Feed {
   count: Int!
 }
 
-type Products {
-  products: [Product!]!
-  count: Int!
-}
 
 
 type ProductResult {

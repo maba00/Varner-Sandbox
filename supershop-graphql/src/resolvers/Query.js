@@ -27,7 +27,7 @@ async function feed(parent, args, context, info) {
     }
 }
 
-async function products(parent, args, context, info) {
+async function variants(parent, args, context, info) {
     const where = args.filter
     ? {
         OR: [
@@ -59,5 +59,5 @@ async function products(parent, args, context, info) {
   
   module.exports = {
     feed,
-    products
+    variants
   }
