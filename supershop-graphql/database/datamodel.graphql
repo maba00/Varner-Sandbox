@@ -1,0 +1,70 @@
+type Link {
+  id: ID! @unique
+  createdAt: DateTime!
+  description: String!
+  url: String!
+  postedBy: User
+  votes: [Vote!]!
+}
+
+type User {
+  id: ID! @unique
+  name: String!
+  email: String! @unique
+  password: String!
+  links: [Link!]!
+  votes: [Vote!]!
+}
+
+type Vote {
+  id: ID! @unique
+  link: Link!
+  user: User!
+}
+
+
+type Product{
+        variantCode: String! @unique
+        styleCode: String!
+        url: String
+        name: String!
+        description: String
+        productionCountry: String
+        price: String
+        offeredPrice: String
+        currency: String
+        catalogs:[String!]
+        color: String
+        category: String
+        looks: [String!]
+        occasions: [String!]
+        chainBrand: String
+        externalBrand: String
+        productClass: String
+        productSubClass: String
+        composition: String
+        materials: [String!]
+        searchDepartment: [String!]
+        care: [String!]
+        mainImage:String
+        hoverImage:String
+        skus:[Sku!]
+}
+
+type ProductImage{
+  variantCode:String
+  imageUsage: String
+  imageType: String
+  imageFormat: String
+  sequence: Int
+  url: String
+}
+
+type Sku{
+  skuId:ID! @unique 
+  variantCode:String
+  stock: Int
+  size: String
+  itemEan: String
+}
+

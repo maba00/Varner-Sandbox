@@ -1,0 +1,20 @@
+{
+    "name": "supershop-apollo",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "nodemon ./src/index.js",
+        "prisma-deploy": "prisma deploy & graphql get-schema --project database"
+    },
+    "dependencies": {
+        "bcryptjs": "^2.4.3",
+        "graphql-yoga": "^1.16.7",
+        "jsonwebtoken": "^8.4.0",
+        "prisma-binding": "^2.2.8"
+    },
+    "devDependencies": {
+        "nodemon": "^1.18.6"
+    }
+}

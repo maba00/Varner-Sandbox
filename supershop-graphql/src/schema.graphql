@@ -1,0 +1,64 @@
+# import Link, LinkSubscriptionPayload, Vote, VoteSubscriptionPayload, LinkOrderByInput,ProductOrderByInput from "./generated/prisma.graphql"
+type Query {
+  info: String!
+  feed(filter: String, skip: Int, first: Int, orderBy: LinkOrderByInput): Feed!
+  products(filter: String, skip: Int, first: Int, orderBy: ProductOrderByInput): Products!
+  product: Product!
+}
+
+type Feed {
+  links: [Link!]!
+  count: Int!
+}
+
+type Products {
+  products: [Product!]!
+  count: Int!
+}
+
+
+type ProductResult {
+  products: [Product!]!
+  count: Int!
+}
+
+type Mutation {
+  # insert link  
+  post(url: String!, description: String!): Link!
+  signup(email: String!, password: String!, name: String!): AuthPayload
+  login(email: String!, password: String!): AuthPayload
+  initProducts:InitProductResult!
+  deleteAllProductsAndSkus:InitProductResult!
+  vote(linkId: ID!): Vote
+}
+
+type AuthPayload {
+  token: String
+  user: User
+}
+
+type User {
+  id: ID!
+  name: String!
+  email: String!
+  links: [Link!]!
+}
+
+type Subscription {
+  newLink: LinkSubscriptionPayload
+  newVote: VoteSubscriptionPayload
+}
+
+type Product{
+  variantCode: ID!
+  styleCode: String!
+  url: String
+  name: String!
+  description: String
+}
+
+type InitProductResult{
+  productCount:Int
+  skuCount:Int
+
+}
