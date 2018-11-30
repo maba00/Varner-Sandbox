@@ -10,7 +10,10 @@ type Feed {
   links: [Link!]!
   count: Int!
 }
-
+type Products {
+  products: [Product!]!
+  count: Int!
+}
 
 
 type ProductResult {
